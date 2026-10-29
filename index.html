@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SurakshaNet — Disaster Preparedness & Response</title>
+    <meta
+      name="description"
+      content="SurakshaNet is a mobile-first disaster preparedness and emergency response platform: live alerts, SOS, shelters, weather and earthquake awareness."
+    />
+    <meta property="og:title" content="SurakshaNet — Disaster Preparedness & Response" />
+    <meta
+      property="og:description"
+      content="Live disaster alerts, one-tap SOS, nearest shelters and an authority response dashboard."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap"
+    />
+    <style>
+      :root {
+        --critical: #c8102e;
+        --high: #ea580c;
+        --moderate: #eab308;
+        --safe: #16a34a;
+        --ink: #1a1a1a;
+        --muted: #5b6470;
+        --bg: #ffffff;
+        --card: #f6f7f9;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Hind", system-ui, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Archivo", system-ui, sans-serif;
+        line-height: 1.2;
+      }
+      header {
+        padding: 1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: "Archivo", sans-serif;
+        font-weight: 800;
+        font-size: 1.15rem;
+      }
+      .brand-dot {
+        width: 0.85rem;
+        height: 0.85rem;
+        border-radius: 999px;
+        background: var(--critical);
+        box-shadow: 0 0 0 4px rgba(200, 16, 46, 0.15);
+      }
+      .live {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--safe);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .live::before {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 999px;
+        background: var(--safe);
+        animation: pulse 1.6s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
+      }
+      .hero {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 3rem 1.25rem 2rem;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 6vw, 3.25rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .hero h1 span {
+        color: var(--critical);
+      }
+      .hero p {
+        margin-top: 1rem;
+        max-width: 40rem;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+      .cta-row {
+        margin-top: 1.75rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-family: "Archivo", sans-serif;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: transform 0.15s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--critical);
+        color: #fff;
+      }
+      .btn-ghost {
+        border: 1.5px solid #d8dde3;
+        color: var(--ink);
+      }
+      .sev {
+        margin-top: 2.25rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        background: var(--card);
+      }
+      .chip i {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 999px;
+        display: inline-block;
+      }
+      section.features {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+      section.features h2 {
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 1rem;
+        padding: 1.25rem;
+      }
+      .card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.35rem;
+      }
+      .card p {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid #eceff2;
+        padding: 1.25rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      footer a {
+        color: var(--critical);
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand"><span class="brand-dot"></span> SurakshaNet</div>
+      <span class="live">Live</span>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Be prepared.<br />Stay <span>safe.</span></h1>
+        <p>
+          SurakshaNet is a mobile-first disaster preparedness and emergency response platform.
+          Citizens get live disaster alerts, weather and earthquake awareness, one-tap SOS with
+          emergency numbers, and the nearest shelters and hospitals. Authorities get a response
+          dashboard to broadcast alerts and manage incidents from report to resolution.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://bright-beacon-flow.lovable.app">Open the app</a>
+          <a class="btn btn-ghost" href="https://github.com/nikhil73-sudo/surakshanet">View source on GitHub</a>
+        </div>
+        <div class="sev">
+          <span class="chip"><i style="background: #c8102e"></i> Critical</span>
+          <span class="chip"><i style="background: #ea580c"></i> High</span>
+          <span class="chip"><i style="background: #eab308"></i> Moderate</span>
+          <span class="chip"><i style="background: #16a34a"></i> Safe</span>
+        </div>
+      </div>
+
+      <section class="features">
+        <h2>What's inside</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Live dashboard</h3>
+            <p>Real-time alert feed, live map, weather warnings and earthquake updates for your area.</p>
+          </div>
+          <div class="card">
+            <h3>One-tap SOS</h3>
+            <p>Share your location and dial 112, 108, 101 or 100 instantly, plus a family alert message.</p>
+          </div>
+          <div class="card">
+            <h3>Find help nearby</h3>
+            <p>Nearest shelters, hospitals and relief camps with one-tap directions.</p>
+          </div>
+          <div class="card">
+            <h3>Authority response</h3>
+            <p>Broadcast alerts, verify citizen reports and track incidents from reported to resolved.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      SurakshaNet · This page is a project overview. The app itself runs at
+      <a href="https://bright-beacon-flow.lovable.app">bright-beacon-flow.lovable.app</a>
+    </footer>
+  </body>
+</html>
